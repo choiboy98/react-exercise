@@ -18,6 +18,16 @@ class App extends Component {
     this.setState({ counter: this.state.counter - 1 })
   }
 
+  isNumeric = () => {
+    var x = document.getElementById('initializeCounter').value
+    if (!isNaN(parseFloat(x)) && isFinite(x)) {
+      this.setState({ counter: x })
+    } else {
+      alert('Wrong input value')
+      document.getElementById('initializeCounter').value = ''
+    }
+  }
+
   render() {
     return (
       <div className="app">
@@ -26,6 +36,12 @@ class App extends Component {
           shouldDisplayImage={true}
           items={['apple', 'banana', 'clementine', 'dragonfruit', 'bl']}
         />
+        <input
+          type="text"
+          id="initializeCounter"
+          placeholder="change your initial count"
+        />
+        <button onClick={this.isNumeric}>Initialize Count</button>
         <p>{this.state.counter}</p>
         <button onClick={this.incrementCounter}>Increment</button>
         <button onClick={this.decrementCounter}>Decrement</button>
