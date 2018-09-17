@@ -21,7 +21,7 @@ class App extends Component {
   isNumeric = event => {
     var x = document.getElementById('initializeCounter').value
     if (!isNaN(parseFloat(x)) && isFinite(x)) {
-      this.setState({ counter: x })
+      this.setState({ counter: parseInt(x) })
     } else {
       alert('Wrong input value')
       document.getElementById('initializeCounter').value = ''
